@@ -2,8 +2,10 @@
     <div class="input-group" :class="[classes]">
         <input type="text" class="form-control type-ahead-select taller"
                :placeholder="placeholder"
-               autocomplete="do-not-use"
+               autocomplete="off"
                v-model="query"
+               :id="id"
+               :name="name"
                @keydown.down="down"
                @keydown.up="up"
                @keydown.enter.prevent="hit"
@@ -38,6 +40,16 @@
   export default{
     name: 'TypeAhead',
     props: {
+      id: {
+        required: false,
+        type: String,
+        default: ''
+      },
+      name: {
+        required: false,
+        type: String,
+        default: ''
+      },
       selectFirst: {
         // 是否选择第一个选项
         required: false,
